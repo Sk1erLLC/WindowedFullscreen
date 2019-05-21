@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "sk1er_fullscreen",
+    "name": "Sk1er Fullscreen",
+    "description": "A good fullscreen mod.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Sk1er"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
