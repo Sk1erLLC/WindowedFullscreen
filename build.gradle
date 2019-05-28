@@ -22,7 +22,7 @@ plugins {
 */
 version = "1.0"
 group= "club.sk1er.mods.fullscreen" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Sk1er Better Fullscreen"
+archivesBaseName = "Sk1er Better Fullscreen (1.8+)"
 
 minecraft {
     version = "1.8.9-11.15.1.1902-1.8.9"

@@ -33,7 +33,7 @@ public class FulllScreenMod {
         if (lastFullscreen != fullScreenNow) {
             fix(fullScreenNow);
             lastFullscreen = fullScreenNow;
-        }]
+        }
     }
 
 
