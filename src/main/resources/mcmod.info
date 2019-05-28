@@ -4,7 +4,7 @@
     "name": "Sk1er Fullscreen",
     "description": "A good fullscreen mod.",
     "version": "${version}",
-    "mcversion": "${mcversion}",
+    "mcversion": "*",
     "url": "",
     "updateUrl": "",
     "authorList": [

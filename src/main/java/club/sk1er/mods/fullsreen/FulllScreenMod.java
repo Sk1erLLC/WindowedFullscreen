@@ -11,7 +11,10 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-@Mod(modid = FulllScreenMod.MODID, version = FulllScreenMod.VERSION)
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+@Mod(modid = FulllScreenMod.MODID, version = FulllScreenMod.VERSION, acceptedMinecraftVersions = "*")
 public class FulllScreenMod {
     public static final String MODID = "sk1er_fullscreen";
     public static final String VERSION = "1.0";
@@ -30,7 +33,7 @@ public class FulllScreenMod {
         if (lastFullscreen != fullScreenNow) {
             fix(fullScreenNow);
             lastFullscreen = fullScreenNow;
-        }
+        }]
     }
 
 
@@ -46,6 +49,10 @@ public class FulllScreenMod {
                 System.setProperty("org.lwjgl.opengl.Window.undecorated", "false");
                 Display.setDisplayMode(new DisplayMode(Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight));
                 Display.setResizable(true);
+                Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+                int x = (int) ((dimension.getWidth() - Display.getWidth()) / 2);
+                int y = (int) ((dimension.getHeight() - Display.getHeight()) / 2);
+                Display.setLocation(x, y);
             }
         } catch (LWJGLException e) {
             e.printStackTrace();
