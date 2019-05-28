@@ -1,12 +1,8 @@
-package club.sk1er.mods.fullsreen;
+package club.sk1er.mods.fullscreen;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -14,18 +10,9 @@ import org.lwjgl.opengl.DisplayMode;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-@Mod(modid = FulllScreenMod.MODID, version = FulllScreenMod.VERSION, acceptedMinecraftVersions = "*")
-public class FulllScreenMod {
-    public static final String MODID = "sk1er_fullscreen";
-    public static final String VERSION = "1.0";
+public class Listener {
     boolean lastFullscreen = false;
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(this);
-        FMLCommonHandler.instance().bus().register(this);
-
-    }
 
     @SubscribeEvent
     public void tick(TickEvent.ClientTickEvent event) {
