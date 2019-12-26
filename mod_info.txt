@@ -1,0 +1,3 @@
+<br>
+<p>Windowed Fullscreen adds support for borderless windowed mode in 1.8</p>
+<br>
