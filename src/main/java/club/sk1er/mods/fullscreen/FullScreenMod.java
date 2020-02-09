@@ -16,13 +16,14 @@ import java.awt.Toolkit;
 public class FullScreenMod {
     public static final String MODID = "sk1er_fullscreen";
     public static final String VERSION = "2.0";
-    boolean lastFullscreen = false;
 
     public static boolean apply() {
         Minecraft minecraft = Minecraft.getMinecraft();
         minecraft.fullscreen = !minecraft.fullscreen;
 
-        Mouse.setGrabbed(false);
+        boolean grabbed = Mouse.isGrabbed();
+        if (grabbed)
+            Mouse.setGrabbed(false);
         try {
             DisplayMode displayMode = Display.getDesktopDisplayMode();
             if (minecraft.fullscreen) {
@@ -52,7 +53,8 @@ public class FullScreenMod {
             }
             minecraft.updateDisplay();
             Mouse.setCursorPosition((Display.getX() + Display.getWidth()) / 2, (Display.getY() + Display.getHeight()) / 2);
-            Mouse.setGrabbed(true);
+            if (grabbed)
+                Mouse.setGrabbed(true);
             return true;
         } catch (LWJGLException e) {
             e.printStackTrace();
