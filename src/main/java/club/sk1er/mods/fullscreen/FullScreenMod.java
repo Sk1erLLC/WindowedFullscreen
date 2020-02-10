@@ -1,16 +1,13 @@
 package club.sk1er.mods.fullscreen;
 
+import cpw.mods.fml.common.Mod;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 
 @Mod(modid = FullScreenMod.MODID, version = FullScreenMod.VERSION, acceptedMinecraftVersions = "*")
 public class FullScreenMod {
@@ -29,9 +26,7 @@ public class FullScreenMod {
             if (minecraft.fullscreen) {
                 System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
                 Display.setDisplayMode(displayMode);
-
                 Display.setLocation(0, 0);
-                Display.setFullscreen(false);
                 Display.setResizable(false);
             } else {
                 System.setProperty("org.lwjgl.opengl.Window.undecorated", "false");
@@ -51,8 +46,8 @@ public class FullScreenMod {
             } else {
                 minecraft.updateFramebufferSize();
             }
-            minecraft.updateDisplay();
             Mouse.setCursorPosition((Display.getX() + Display.getWidth()) / 2, (Display.getY() + Display.getHeight()) / 2);
+            minecraft.resetSize();
             if (grabbed)
                 Mouse.setGrabbed(true);
             return true;
@@ -62,8 +57,5 @@ public class FullScreenMod {
         return false;
     }
 
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-//        MinecraftForge.EVENT_BUS.register(this);
-    }
+
 }

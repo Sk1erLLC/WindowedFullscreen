@@ -1,9 +1,12 @@
 package club.sk1er.mods.fullscreen.forge;
 
-import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
 
+@IFMLLoadingPlugin.SortingIndex(1001)
+@IFMLLoadingPlugin.DependsOn("forge")
 public class FMLLoadingPlugin implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {
