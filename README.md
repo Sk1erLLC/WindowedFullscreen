@@ -1,2 +1,2 @@
 # WindowedFullscreen
-A Windowed Fullscreen mod for Minecraft
+A Windowed Fullscreen mod for Minecraft that overrides Minecraft's standard behavior of invoking ```Display.setFullscreen(true);``` This change allows significantly faster changing both to and from fullscren. 
