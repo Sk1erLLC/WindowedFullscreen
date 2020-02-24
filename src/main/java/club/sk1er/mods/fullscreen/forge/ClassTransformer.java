@@ -18,7 +18,7 @@ public class ClassTransformer implements IClassTransformer {
 
     private final Logger LOGGER = LogManager.getLogger("PatcherTransformer");
     private final Multimap<String, Transformer> transformerMap = ArrayListMultimap.create();
-    private final boolean outputBytecode = Boolean.parseBoolean(System.getProperty("debugBytecode", "false")) || true;
+    private final boolean outputBytecode = Boolean.parseBoolean(System.getProperty("debugBytecode", "false"));
 
     public ClassTransformer() {
         registerTransformer(new MinecraftTransformer());

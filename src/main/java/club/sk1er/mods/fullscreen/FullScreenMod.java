@@ -1,5 +1,7 @@
 package club.sk1er.mods.fullscreen;
 
+import club.sk1er.modcore.ModCoreInstaller;
+import club.sk1er.mods.fullscreen.forge.MinecraftTransformer;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -8,6 +10,7 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import org.objectweb.asm.tree.ClassNode;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -17,6 +20,10 @@ public class FullScreenMod {
     public static final String MODID = "sk1er_fullscreen";
     public static final String VERSION = "2.0";
 
+    /**
+     * Used in {@link MinecraftTransformer#transform(ClassNode, String)}
+     */
+    @SuppressWarnings("unused")
     public static boolean apply() {
         Minecraft minecraft = Minecraft.getMinecraft();
         minecraft.fullscreen = !minecraft.fullscreen;
@@ -64,6 +71,6 @@ public class FullScreenMod {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-//        MinecraftForge.EVENT_BUS.register(this);
+        ModCoreInstaller.initializeModCore(Minecraft.getMinecraft().mcDataDir);
     }
 }
